@@ -1,5 +1,3 @@
-local dir = "user.config."
-
-require(dir .. "autocmds")
-require(dir .. "keymaps")
-require(dir .. "options")
+require "user.config.autocmds"
+require "user.config.keymaps"
+require "user.config.options"

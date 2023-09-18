@@ -1,5 +1,4 @@
--- key mappings
-local M = {}
+local keymaps = require "user.core.keymaps"
 
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
@@ -9,8 +8,6 @@ local all = {
 }
 
 local normal = {
-  ["<TAB>"] = "%", -- bracket jump
-
   -- screen vs line up / down
   ["j"] = "gj",
   ["k"] = "gk",
@@ -25,7 +22,28 @@ local normal = {
   ["<C-k>"] = "<C-w>k",
   ["<C-l>"] = "<C-w>l",
 
+  -- chadtree
   ["<LEADER>v"] = "<CMD>CHADopen<CR>", -- open file tree
+
+  -- quickfix
+  ["<LEADER>q"] = function()
+    -- thank you Riesling-Schorle
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+      if win["quickfix"] == 1 then
+        qf_exists = true
+      end
+    end
+    if qf_exists == true then
+      vim.cmd "cclose"
+      return
+    end
+    if not vim.tbl_isempty(vim.fn.getqflist()) then
+      vim.cmd "copen"
+    end
+  end,
+  ["<LEADER>;"] = "<CMD>cnext<CR>",
+  ["<LEADER>,"] = "<CMD>cprev<CR>",
 }
 
 local insert = {
@@ -39,28 +57,11 @@ local visual = {
 
 local allmodes = {
   [""] = all,
-  n =  normal,
+  n = normal,
   i = insert,
   v = visual,
 }
 
-
-local default_opts = { noremap = true, silent = true }
-
-function M.keymap(mode, key, val, opts)
-  vim.keymap.set(mode, key, val, opts)
-end
-
-function M.mapmode(mode, mappings, opts)
-  opts = opts or default_opts
-
-  for key, val in pairs(mappings) do
-    M.keymap(mode, key, val, opts)
-  end
-end
-
 for mode, mappings in pairs(allmodes) do
-  M.mapmode(mode, mappings)
+  keymaps.mapmode(mode, mappings)
 end
-
-return M

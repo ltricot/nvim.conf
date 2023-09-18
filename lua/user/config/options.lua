@@ -1,8 +1,5 @@
-local M = {}
+local options = require "user.core.options"
 
-function M.setopt(key, val)
-  vim.opt[key] = val
-end
 
 -- I like spaces
 local tabs = {
@@ -26,7 +23,8 @@ local editor = {
 
   -- strange thing happens because of a plugin (chadtree)
   -- this fixes it
-  signcolumn = "no",
+  -- signcolumn = "no",
+  signcolumn = "yes",
 
   undofile = true,
 
@@ -74,9 +72,19 @@ local groups = {
 }
 
 for _, grp in pairs(groups) do
-  for opt, val in pairs(grp) do
-    M.setopt(opt, val)
-  end
+  options.setopts(grp)
 end
 
-return M
+
+-- see :help fo-table
+vim.opt.formatoptions = "l"
+vim.opt.formatoptions = vim.opt.formatoptions
+  - "a" -- don't autoformat code
+  - "t" -- don't autoformat text (kind of irrelevant)
+  - "o" -- O and o, don't continue comments
+  + "r" -- do continue when pressing enter.
+  + "c" -- wrap comments
+  + "q" -- allow formatting comments w/ gq
+  + "n" -- format numbered lists correctly
+  + "j" -- join comment lines
+  - "2" -- first line of paragraph is not special

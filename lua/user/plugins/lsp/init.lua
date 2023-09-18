@@ -1,4 +1,2 @@
-local dir = "user.plugins.lsp."
-
-require(dir .. "completions") -- must come before lsp
-require(dir .. "lsp")
+require "user.plugins.lsp.completions" -- must come before lsp
+require "user.plugins.lsp.lsp"

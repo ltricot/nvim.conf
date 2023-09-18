@@ -87,7 +87,12 @@ function M.plugins(packer, bootstrap)
 
     -- telescope
     use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.2',
+      'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    }
+    use {
+      'nvim-telescope/telescope.nvim',
+      branch = "0.1.x",
       requires = { "nvim-lua/plenary.nvim" }
     }
 
@@ -96,6 +101,9 @@ function M.plugins(packer, bootstrap)
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate"
     }
+
+    -- git integration
+    use { "https://github.com/lewis6991/gitsigns.nvim" }
 
     -- colorscheme
     use { "catppuccin/nvim", as = "catppuccin" }
