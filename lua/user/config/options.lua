@@ -44,10 +44,6 @@ local editor = {
   shortmess = "I",
 }
 
-local theme = {
-  background = "dark",
-}
-
 local search = {
   hlsearch = false,  -- I use this as a movement method, not a highlighter
   incsearch = true,
@@ -66,7 +62,6 @@ local substitution = {
 local groups = {
   tabs,
   editor,
-  theme,
   search,
   substitution,
 }

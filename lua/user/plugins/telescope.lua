@@ -8,18 +8,18 @@ local keymaps = require "user.core.keymaps"
 
 keymaps.mapmode("n", {
   -- basic
-  ['<LEADER>ff'] = builtin.find_files,
-  ['<LEADER>fg'] = builtin.live_grep,
-  ['<LEADER>fb'] = builtin.buffers,
-  ['<LEADER>fh'] = builtin.help_tags,
+  [',ff'] = builtin.find_files,
+  [',fg'] = builtin.live_grep,
+  [',fb'] = builtin.buffers,
+  [',fh'] = builtin.help_tags,
 
-  -- jump lists
-  ['<LEADER>fq'] = builtin.quickfix,
-  ['<LEADER>fl'] = builtin.loclist,
+  -- fjump lists
+  [',fq'] = builtin.quickfix,
+  [',fl'] = builtin.loclist,
 
-  -- lsp & treesitter
-  ['<LEADER>fr'] = builtin.lsp_references,
-  ['<LEADER>fd'] = builtin.lsp_definitions,
-  ['<LEADER>fs'] = builtin.treesitter,
-  ['<LEADER>fe'] = builtin.diagnostics,
+  -- flsp & treesitter
+  [',fr'] = builtin.lsp_references,
+  [',fd'] = builtin.lsp_definitions,
+  [',fs'] = builtin.treesitter,
+  [',fe'] = builtin.diagnostics,
 })

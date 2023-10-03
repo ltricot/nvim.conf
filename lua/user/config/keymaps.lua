@@ -12,8 +12,6 @@ local normal = {
   ["j"] = "gj",
   ["k"] = "gk",
 
-  ["<LEADER><SPACE>"] = "<CMD>noh<CR>", -- fast no highlight
-
   -- splits
   ["<LEADER>w"] = "<C-w>v<C-w>l",
   ["<C-n>"] = "<C-w>v<C-w>l",
@@ -26,6 +24,7 @@ local normal = {
   ["<LEADER>v"] = "<CMD>CHADopen<CR>", -- open file tree
 
   -- quickfix
+  ["<LEADER>l"] = function() vim.fn.setqflist({}) end,
   ["<LEADER>q"] = function()
     -- thank you Riesling-Schorle
     local qf_exists = false
@@ -52,7 +51,7 @@ local insert = {
 
 local visual = {
   ["<TAB>"] = "%", -- bracket jump
-  ["p"] = '"_dP', -- paste without yanking
+  ["p"] = '"_dP',  -- paste without yanking
 }
 
 local allmodes = {
