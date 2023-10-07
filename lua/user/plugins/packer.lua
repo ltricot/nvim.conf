@@ -56,6 +56,14 @@ function M.plugins(packer, bootstrap)
   return packer.startup(function(use)
     use "wbthomason/packer.nvim"
 
+    use {
+      "chipsenkbeil/distant.nvim",
+      branch = 'v0.3',
+      config = function()
+          require("distant"):setup()
+      end
+    }
+
     -- apparently used by other plugins
     use {
       "nvim-lua/plenary.nvim",

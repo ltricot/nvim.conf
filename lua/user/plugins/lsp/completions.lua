@@ -6,7 +6,7 @@ vim.g.coq_settings = {
   auto_start = "shut-up",
 
   keymap = {
-    recommended = false,
+    recommended = true,
 
     manual_complete = "<CTRL-SPACE>",
     jump_to_mark = "",
@@ -18,28 +18,28 @@ vim.g.coq_settings = {
   }
 }
 
-local function conditional(lhs, rhs)
-  return function()
-    if vim.fn.pumvisible() == 1 then
-    return rhs
-    else
-      return lhs
-    end
-  end
-end
-
-local opts = { silent = true, expr = true }
-local maps = {
-  ["<Esc>"] = "<C-e><Esc>",
-  ["<C-c>"] = "<C-e><C-c>",
-  ["<BS>"] = "<C-e><BS>",
-  ["<CR>"] = "<C-e><CR>",
-  ["<Tab>"] = "<C-n>",
-  ["<S-Tab>"] = "<C-p>",
-}
-
-for lhs, rhs in pairs(maps) do
-  keymap.keymap("i", lhs, conditional(lhs, rhs), opts)
-end
+-- local function conditional(lhs, rhs)
+--   return function()
+--     if vim.fn.pumvisible() == 1 then
+--       return rhs
+--     else
+--       return lhs
+--     end
+--   end
+-- end
+--
+-- local opts = { silent = true, expr = true }
+-- local maps = {
+--   ["<Esc>"] = "<C-e><Esc>",
+--   ["<C-c>"] = "<C-e><C-c>",
+--   ["<BS>"] = "<C-e><BS>",
+--   ["<CR>"] = "<C-e><CR>",
+--   ["<Tab>"] = "<C-n>",
+--   ["<S-Tab>"] = "<C-p>",
+-- }
+-- 
+-- for lhs, rhs in pairs(maps) do
+--   keymap.keymap("i", lhs, conditional(lhs, rhs), opts)
+-- end
 
 require "coq"
