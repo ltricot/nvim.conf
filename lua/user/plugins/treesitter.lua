@@ -1,7 +1,7 @@
 local configs = require "nvim-treesitter.configs"
 
 configs.setup({
-  ensure_installed = "all",
+  ensure_installed = { "python", "c", "cpp", "bash", "sql" },
   sync_install = false,
   ignore_install = { "" },
 
