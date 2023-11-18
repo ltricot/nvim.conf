@@ -8,13 +8,13 @@ local all = {
 }
 
 local normal = {
-  -- screen vs line up / down
+  -- screen vs line up / dowh
   ["j"] = "gj",
   ["k"] = "gk",
 
   -- splits
   ["<LEADER>w"] = "<C-w>v<C-w>l",
-  ["<C-n>"] = "<C-w>v<C-w>l",
+  -- ["<C-n>"] = "<C-w>v<C-w>l",
   ["<C-h>"] = "<C-w>h",
   ["<C-j>"] = "<C-w>j",
   ["<C-k>"] = "<C-w>k",
