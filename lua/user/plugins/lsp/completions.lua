@@ -9,10 +9,10 @@ vim.g.coq_settings = {
     recommended = true,
 
     manual_complete = "<CTRL-SPACE>",
-    jump_to_mark = "<leader-h>",
+    jump_to_mark = "<leader>h",
     ["repeat"] = "",
     bigger_preview = "",
-    eval_snips = "",
+    eval_snips = "<leader>j",
     manual_complete_insertion_only = false,
     pre_select = false,
   }

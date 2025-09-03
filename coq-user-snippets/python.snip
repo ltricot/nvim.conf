@@ -1,0 +1,14 @@
+snippet query
+alias q
+  def ${0:QueryName}(date: dt.date):
+      return
+
+snippet dataclass
+alias dc
+  @dataclass(frozen=True)
+  class ${1:Classname}:
+      ${2:prop}: ${0:type}
+
+snippet main
+  if __name__ == "__main__":
+      main()
